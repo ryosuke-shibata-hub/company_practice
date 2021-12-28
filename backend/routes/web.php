@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+//トップページ(companies)
+Route::resource('/', 'App\Http\Controllers\CompanyContoller');
+Route::resource('Employee', 'App\Http\Controllers\EmployeeController');

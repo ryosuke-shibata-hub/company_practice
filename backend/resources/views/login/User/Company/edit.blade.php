@@ -1,9 +1,7 @@
 @extends('login.layouts.common')
-@section('title', 'トップページ')
+@section('title', 'CompanyEdit')
 @include('login.layouts.header')
 @section('contents')
-<h1>
-  てすと
-</h1>
+<h2>編集</h2>
 @endsection
 @include('login.layouts.footer')

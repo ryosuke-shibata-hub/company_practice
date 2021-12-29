@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Employee;
 
-class EmployeeController extends Controller
+class LoginController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +14,7 @@ class EmployeeController extends Controller
     public function index()
     {
         //
-        $employees = Employee::all();
-
-            return view('login.User.Employee.index')
-            ->with('employees',$employees);
-
+        return view('logout.LoginForm');
     }
 
     /**

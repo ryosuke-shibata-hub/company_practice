@@ -17,5 +17,14 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 //トップページ(companies)
-Route::resource('/', 'App\Http\Controllers\CompanyContoller');
-Route::resource('Employee', 'App\Http\Controllers\EmployeeController');
+Route::resource('Login', 'App\Http\Controllers\LoginController');
+Route::resource('Logout', 'App\Http\Controllers\LogoutController');
+
+Route::resource('Register', 'App\Http\Controllers\RegisterController');
+
+Route::resource('companies', 'App\Http\Controllers\CompanyContoller');
+
+Route::GET('companies/{company}','App\Http\Controllers\CompanyContoller@edit')
+->name('companies.edit');
+
+Route::resource('Employees', 'App\Http\Controllers\EmployeeController');

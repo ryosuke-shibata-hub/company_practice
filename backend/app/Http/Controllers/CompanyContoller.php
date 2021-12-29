@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Company;
 
 class CompanyContoller extends Controller
 {
@@ -14,7 +15,10 @@ class CompanyContoller extends Controller
     public function index()
     {
         //
-        return view('login.User.top');
+        $companies = Company::all();
+
+        return view('login.User.Company.index')
+        ->with('companies',$companies);
     }
 
     /**
@@ -25,6 +29,7 @@ class CompanyContoller extends Controller
     public function create()
     {
         //
+        return view('login.User.Company.create');
     }
 
     /**
@@ -35,7 +40,21 @@ class CompanyContoller extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request -> validate([
+            'name' => 'required','string',
+            'email' => 'required','string','email',
+            'website' => 'required',
+        ]);
+
+        $company = new Company;
+        $company->name = $request->name;
+        $company->email = $request->email;
+        $company->website = $request->website;
+
+        $company->save();
+
+        return redirect('/companies');
     }
 
     /**
@@ -58,6 +77,10 @@ class CompanyContoller extends Controller
     public function edit($id)
     {
         //
+        $company = Company::findOrFail($id);
+
+        return view('login.User.Company.edit')
+        ->with('company',$company);
     }
 
     /**

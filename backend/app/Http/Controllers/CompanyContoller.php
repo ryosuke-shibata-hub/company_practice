@@ -41,6 +41,7 @@ class CompanyContoller extends Controller
     public function store(Request $request)
     {
 
+
         $request -> validate([
             'name' => 'required','string',
             'email' => 'required','string','email',
@@ -92,8 +93,24 @@ class CompanyContoller extends Controller
      */
     public function update(Request $request, $id)
     {
+
         //
-    }
+        $request->validate([
+            'name' => 'required','string',
+            'email' => 'required','string','email',
+            'website' => 'required',
+        ]);
+
+        $company = Company::findOrFail($id);
+
+        $company->name = $request->name;
+        $company->email = $request->email;
+        $company->website = $request->website;
+
+        $company->save();
+
+        return redirect('/companies');
+     }
 
     /**
      * Remove the specified resource from storage.
@@ -104,5 +121,10 @@ class CompanyContoller extends Controller
     public function destroy($id)
     {
         //
+
+        $company = Company::findOrFail($id);
+        $company->delete();
+
+        return redirect('/companies');
     }
 }

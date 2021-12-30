@@ -5,9 +5,9 @@
 
 <div class="conttainer">
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-12 col-md-offset-2">
       <div class="panel panel-default">
-        <div class="panel-heading">Employee一覧</div>
+        <div class="panel-heading">ShowEmployee</div>
         <table class="table table-striped panel-body">
           <thead>
             <tr>
@@ -25,15 +25,16 @@
                 <td>{{ $employees->last_name }}</td>
                 <td>{{ $employees->company_id }}</td>
                 <td>
-                <form action="" method="GET">
+              <form action="{{ route('Employees.destroy',[$employees->id]) }}" method="POST">
                   @csrf
-                  <button type="submit" class="btn btn-sm btn-danger">
+                  @method('DELETE')
+                  <button type="submit" class="btn btn-sm btn-danger btn-dell">
                     <i class="fas fa-trash-alt"></i>delete
                   </button>
                 </form>
               </td>
               <td>
-                <form action="" method="GET">
+                <form action="{{ route('Employees.edit',[$employees->id]) }}" method="GET">
                   @csrf
                   <button type="submit" class="btn btn-sm btn-success">
                     <i class="fas fa-edit"></i>edit

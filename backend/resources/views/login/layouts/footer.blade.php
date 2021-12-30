@@ -1,6 +1,6 @@
 @section('footer')
 <footer class="footer">
-  <p class="">&copy;2021/12/28</p>
+  <p class="text-center">&copy;2021/12/28</p>
 </footer>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous">
 </script>
@@ -8,4 +8,5 @@
 </script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
 </script>
+<script src="{{ asset('/js/login.js') }}"defer></script>
 @endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Employee;
+use App\Models\Company;
 
 class EmployeeController extends Controller
 {
@@ -30,6 +31,10 @@ class EmployeeController extends Controller
     public function create()
     {
         //
+        $companies = Company::all();
+
+        return view('login.User.Employee.create')
+        ->with('companies',$companies);
     }
 
     /**
@@ -41,6 +46,21 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'first_name' => 'required','string',
+            'last_name' => 'required','string',
+            'company_id' => 'required',
+        ]);
+
+        $employee = new Employee;
+        $employee->first_name = $request->first_name;
+        $employee->last_name = $request->last_name;
+        $employee->company_id = $request->company_id;
+
+        $employee->save();
+
+        return redirect('/Employees');
+
     }
 
     /**
@@ -62,7 +82,12 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
+
         //
+        $employees = Employee::findOrFail($id);
+
+        return view('login.User.Employee.edit')
+        ->with('employees',$employees);
     }
 
     /**
@@ -75,6 +100,19 @@ class EmployeeController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'first_name' => 'required','string',
+            'last_name' => 'required','string',
+        ]);
+
+        $employee = Employee::findOrFail($id);
+
+        $employee->first_name = $request->first_name;
+        $employee->last_name = $request->last_name;
+
+        $employee->save();
+
+        return redirect('/Employees');
     }
 
     /**
@@ -86,5 +124,9 @@ class EmployeeController extends Controller
     public function destroy($id)
     {
         //
+        $employee = Employee::findOrFail($id);
+        $employee->delete();
+
+        return redirect('/Employees');
     }
 }

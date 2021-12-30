@@ -24,7 +24,4 @@ Route::resource('Register', 'App\Http\Controllers\RegisterController');
 
 Route::resource('companies', 'App\Http\Controllers\CompanyContoller');
 
-Route::GET('companies/{company}','App\Http\Controllers\CompanyContoller@edit')
-->name('companies.edit');
-
 Route::resource('Employees', 'App\Http\Controllers\EmployeeController');

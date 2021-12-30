@@ -5,9 +5,9 @@
 
 <div class="conttainer">
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-12 col-md-offset-2">
       <div class="panel panel-default">
-        <div class="panel-heading">Companies一覧</div>
+        <div class="panel-heading">ShowCompanies</div>
         <table class="table table-striped panel-body">
           <thead>
             <tr>
@@ -29,11 +29,13 @@
               <td>{{ $companies->logo }}</td>
               <td>{{ $companies->website }}</td>
               <td>
-                <form action="" method="GET">
-                  @csrf
-                  <button type="submit" class="btn btn-sm btn-danger">
-                    <i class="fas fa-trash-alt"></i>delete
-                  </button>
+                <form action="{{ route('companies.destroy',[$companies->id]) }}"
+                        method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-sm btn-danger btn-dell">
+                      <i class="fas fa-trash-alt"></i>delete
+                    </button>
                 </form>
               </td>
               <td>

@@ -27,6 +27,7 @@
       <li><a href="{{ route('companies.index') }}">Company</a></li>
       <li><a href="{{ route('Employees.index') }}">Employee</a></li>
       <li><a href="{{ route('companies.create') }}">Register a new company</a></li>
+      <li><a href="{{ route('Employees.create') }}">Register a new Employee</a></li>
     @else
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"

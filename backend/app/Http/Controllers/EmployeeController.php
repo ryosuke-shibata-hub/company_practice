@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Employee;
 use App\Models\Company;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class EmployeeController extends Controller
 {
@@ -16,7 +17,7 @@ class EmployeeController extends Controller
     public function index()
     {
         //
-        $employees = Employee::all();
+        $employees = Employee::paginate(5);
 
             return view('login.User.Employee.index')
             ->with('employees',$employees);

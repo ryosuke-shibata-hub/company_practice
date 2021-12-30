@@ -15,7 +15,7 @@
           </ul>
         </div>
       @endif
-      <h2>Company Create</h2>
+      <h2 class="text-center">Company Create</h2>
       <form action="{{ route('companies.store') }}" method="POST">
         @csrf
         <div class="form-group">

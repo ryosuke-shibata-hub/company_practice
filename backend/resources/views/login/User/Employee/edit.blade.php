@@ -15,7 +15,7 @@
         </ul>
       </div>
       @endif
-      <h2>EmployeeEdit</h2>
+      <h2 class="text-center">EmployeeEdit</h2>
       <form action="{{ route('Employees.update',[$employees->id]) }}"
             method="POST">
         @csrf

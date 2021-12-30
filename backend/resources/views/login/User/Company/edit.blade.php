@@ -15,7 +15,7 @@
           </ul>
         </div>
       @endif
-      <h2>CompanyEdit</h2>
+      <h2 class="text-center">CompanyEdit</h2>
       <form action="{{ route('companies.update',[$company->id]) }}" method="POST">
         @csrf
         @method('PATCH')

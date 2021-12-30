@@ -7,7 +7,7 @@
   <div class="row">
     <div class="col-md-12 col-md-offset-2">
       <div class="panel panel-default">
-        <div class="panel-heading">ShowCompanies</div>
+        <div class="panel-heading text-center ft2 font-f">ShowCompanies</div>
         <table class="table table-striped panel-body">
           <thead>
             <tr>
@@ -21,15 +21,15 @@
             </tr>
           </thead>
           <tbody>
-            @foreach($companies as $companies)
+            @foreach($companies as $company)
             <tr>
-              <td>{{ $companies->id }}</td>
-              <td>{{ $companies->name }}</td>
-              <td>{{ $companies->email }}</td>
-              <td>{{ $companies->logo }}</td>
-              <td>{{ $companies->website }}</td>
+              <td>{{ $company->id }}</td>
+              <td>{{ $company->name }}</td>
+              <td>{{ $company->email }}</td>
+              <td>{{ $company->logo }}</td>
+              <td>{{ $company->website }}</td>
               <td>
-                <form action="{{ route('companies.destroy',[$companies->id]) }}"
+                <form action="{{ route('companies.destroy',[$company->id]) }}"
                         method="POST">
                     @csrf
                     @method('DELETE')
@@ -39,7 +39,7 @@
                 </form>
               </td>
               <td>
-                <form action="{{ route('companies.edit',[$companies->id]) }}" method="GET">
+                <form action="{{ route('companies.edit',[$company->id]) }}" method="GET">
                   @csrf
                   <button type="submit" class="btn btn-sm btn-success">
                     <i class="fas fa-edit"></i>edit
@@ -49,6 +49,7 @@
             </tr>
             @endforeach
           </tbody>
+          {{ $companies->links('pagination::bootstrap-4') }}
         </table>
       </div>
     </div>

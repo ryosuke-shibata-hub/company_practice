@@ -15,7 +15,7 @@ class CompanyContoller extends Controller
     public function index()
     {
         //
-        $companies = Company::all();
+        $companies = Company::paginate(5);
 
         return view('login.User.Company.index')
         ->with('companies',$companies);

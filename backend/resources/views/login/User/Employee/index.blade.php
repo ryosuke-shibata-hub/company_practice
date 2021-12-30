@@ -7,7 +7,7 @@
   <div class="row">
     <div class="col-md-12 col-md-offset-2">
       <div class="panel panel-default">
-        <div class="panel-heading">ShowEmployee</div>
+        <div class="panel-heading text-center ft2 font-f">ShowEmployee</div>
         <table class="table table-striped panel-body">
           <thead>
             <tr>
@@ -19,13 +19,13 @@
             </tr>
           </thead>
           <tbody>
-            @foreach($employees as $employees)
+            @foreach($employees as $employee)
               <tr>
-                <td>{{ $employees->first_name }}</td>
-                <td>{{ $employees->last_name }}</td>
-                <td>{{ $employees->company_id }}</td>
+                <td>{{ $employee->first_name }}</td>
+                <td>{{ $employee->last_name }}</td>
+                <td>{{ $employee->company_id }}</td>
                 <td>
-              <form action="{{ route('Employees.destroy',[$employees->id]) }}" method="POST">
+              <form action="{{ route('Employees.destroy',[$employee->id]) }}" method="POST">
                   @csrf
                   @method('DELETE')
                   <button type="submit" class="btn btn-sm btn-danger btn-dell">
@@ -34,7 +34,7 @@
                 </form>
               </td>
               <td>
-                <form action="{{ route('Employees.edit',[$employees->id]) }}" method="GET">
+                <form action="{{ route('Employees.edit',[$employee->id]) }}" method="GET">
                   @csrf
                   <button type="submit" class="btn btn-sm btn-success">
                     <i class="fas fa-edit"></i>edit
@@ -44,6 +44,7 @@
               </tr>
             @endforeach
           </tbody>
+             {{ $employees->links('pagination::bootstrap-4') }}
         </table>
       </div>
     </div>

@@ -17,10 +17,18 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 //トップページ(companies)
-Route::resource('Login', 'App\Http\Controllers\LoginController');
-Route::resource('Logout', 'App\Http\Controllers\LoginController');
+Route::GET('/login','App\Http\Controllers\LoginController@login')
+->name('login');
+Route::POST('/login','App\Http\Controllers\LoginController@login_submit')
+->name('login_submit');
 
-Route::resource('Register', 'App\Http\Controllers\RegisterController');
+Route::GET('register','App\Http\Controllers\RegisterController@register')
+->name('register');
+Route::POST('/register','App\Http\Controllers\RegisterController@registerForm')
+->name('register_submit');
+
+
+Route::resource('Logout', 'App\Http\Controllers\LoginController');
 
 Route::resource('companies', 'App\Http\Controllers\CompanyContoller');
 

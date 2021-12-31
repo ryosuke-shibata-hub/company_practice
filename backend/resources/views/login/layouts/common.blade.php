@@ -18,7 +18,7 @@
     <div id="nav-bar-right">
   <ul class="nav navbar-nav navbar-left">
     @guest
-      <li><a href="{{ route('Login.index') }}" class="li-nav-item">Login</a></li>
+      <li><a href="{{ route('login') }}" class="li-nav-item">Login</a></li>
       @else
       <li><a href="{{ route('companies.index') }}" class="li-nav-item">Company</a></li>
       <li><a href="{{ route('Employees.index') }}" class="li-nav-item">Employee</a></li>

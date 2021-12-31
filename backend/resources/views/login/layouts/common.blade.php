@@ -13,15 +13,23 @@
 @yield('header')
 @yield('contents')
 <div class="collapes navbar-collapes" id="app-navbar-collapse">
+  <div class="openbtn"><span></span><span></span><span></span></div>
+    <nav id="g-nav">
+    <div id="nav-bar-right">
   <ul class="nav navbar-nav navbar-left">
     @guest
+      <li><a href="{{ route('Login.index') }}" class="li-nav-item">Login</a></li>
       @else
-      <li><a href="{{ route('companies.index') }}">Company</a></li>
-      <li><a href="{{ route('Employees.index') }}">Employee</a></li>
+      <li><a href="{{ route('companies.index') }}" class="li-nav-item">Company</a></li>
+      <li><a href="{{ route('Employees.index') }}" class="li-nav-item">Employee</a></li>
     @endguest
   </ul>
+  </div>
+  </nav>
 
-  <ul class="nav navbar-nav navbar-right">
+
+
+  {{-- <ul class="nav navbar-nav navbar-right openbtnleft">
     @guest
       <li><a href="{{ route('Login.index') }}">Login</a></li>
       <li><a href="{{ route('Register.index') }}">Register</a></li>
@@ -51,7 +59,7 @@
         </ul>
       </li>
     @endguest
-  </ul>
+  </ul> --}}
 </div>
 @yield('footer')
 </body>

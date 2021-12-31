@@ -7,4 +7,14 @@ $(function (){
             return false;
         }
     });
+
+    $(".openbtn").click(function () {
+        $(this).toggleClass('active');
+        $("#g-nav").toggleClass('panelactive');
+    });
+
+    $("#g-nav a").click(function () {
+        $(".opentbtn").removeClass('active');
+        $("#g-nav").removeClass('panelactive');
+    });
 });

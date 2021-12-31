@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 // });
 //トップページ(companies)
 Route::resource('Login', 'App\Http\Controllers\LoginController');
-Route::resource('Logout', 'App\Http\Controllers\LogoutController');
+Route::resource('Logout', 'App\Http\Controllers\LoginController');
 
 Route::resource('Register', 'App\Http\Controllers\RegisterController');
 

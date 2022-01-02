@@ -6,8 +6,17 @@
   <div class="row">
     <div class="col-md-12 col-md-offset-2">
       <h2 class="text-center pt-5 pb-5">Login</h2>
-      <form action="{{ route('login') }}" method="POST">
+      @if(session('login_error'))
+      <span class="text-danger" style="padding-left: 35%;">
+        {{ session('login_error') }}
+      </span>
+      @endif
+      <form action="{{ route('login_submit') }}" method="POST">
         @csrf
+        <div class="form-group" style="padding-left: 35%;">
+          <label for="email">UserName</label>
+          <input type="text" name="name" class="form-control w-50">
+        </div>
         <div class="form-group" style="padding-left: 35%;">
           <label for="email">UserEmail</label>
           <input type="text" name="email" class="form-control w-50">

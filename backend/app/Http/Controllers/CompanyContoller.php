@@ -46,12 +46,22 @@ class CompanyContoller extends Controller
             'name' => 'required','string',
             'email' => 'required','string','email',
             'website' => 'required',
+            'file' => 'required','image','file',
         ]);
+
+        if($file = $request->file) {
+            $fileName = time().$file->getClientOriginalName();
+            $target_path = public_path('uploads/');
+            $file->move($target_path,$fileName);
+        }else{
+            $fileName = "";
+        }
 
         $company = new Company;
         $company->name = $request->name;
         $company->email = $request->email;
         $company->website = $request->website;
+        $company->logo =  $fileName;
 
         $company->save();
 
@@ -99,13 +109,23 @@ class CompanyContoller extends Controller
             'name' => 'required','string',
             'email' => 'required','string','email',
             'website' => 'required',
+            'file' => 'required','image','file',
         ]);
+
+        if($file = $request->file) {
+            $fileName = time().$file->getClientOriginalName();
+            $target_path = public_path('uploads/');
+            $file->move($target_path,$fileName);
+        }else{
+            $fileName = "";
+        }
 
         $company = Company::findOrFail($id);
 
         $company->name = $request->name;
         $company->email = $request->email;
         $company->website = $request->website;
+        $company->logo = $fileName;
 
         $company->save();
 

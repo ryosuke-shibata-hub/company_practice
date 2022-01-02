@@ -17,49 +17,25 @@
     <nav id="g-nav">
     <div id="nav-bar-right">
   <ul class="nav navbar-nav navbar-left">
+    <li class="ft2"style="color:#ffffff; padding-bottom:50px;">LoginUser::{{ Auth::user()->name }}</li>
     @guest
       <li><a href="{{ route('login') }}" class="li-nav-item">Login</a></li>
       @else
+
       <li><a href="{{ route('companies.index') }}" class="li-nav-item">Company</a></li>
       <li><a href="{{ route('Employees.index') }}" class="li-nav-item">Employee</a></li>
+      @can('admin')
+      <li><a href="{{ route('companies.create') }}" class="li-nav-item">Register a new company</a>
+      </li>
+      <li><a href="{{ route('Employees.create') }}" class="li-nav-item">Register a new Employee</a>
+      </li>
+      <li><a href="{{ route('User.index') }}" class="nav-item">
+      Register New User</a></li>
+      @endcan
     @endguest
   </ul>
   </div>
   </nav>
-
-
-
-  {{-- <ul class="nav navbar-nav navbar-right openbtnleft">
-    @guest
-      <li><a href="{{ route('Login.index') }}">Login</a></li>
-      <li><a href="{{ route('Register.index') }}">Register</a></li>
-      <li><a href="{{ route('companies.index') }}">Company</a></li>
-      <li><a href="{{ route('Employees.index') }}">Employee</a></li>
-      <li><a href="{{ route('companies.create') }}">Register a new company</a></li>
-      <li><a href="{{ route('Employees.create') }}">Register a new Employee</a></li>
-    @else
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-            aria-expanded="false" aria-haspopup="true" v-pre>
-            {{ Auth::user()->name() }}<span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu">
-          <li>
-            <a href="{{ route('logout') }}"
-                onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();">
-                Logout
-            </a>
-            <form id="logout-form" action="{{ route('logout') }}"
-                    method="post"
-                    style="display: none;">
-                @csrf
-            </form>
-          </li>
-        </ul>
-      </li>
-    @endguest
-  </ul> --}}
 </div>
 @yield('footer')
 </body>

@@ -6,15 +6,11 @@
   <div class="row">
     <div class="col-md-12 col-md-offset-2">
       <h2 class="text-center pt-5 pb-5">Register</h2>
-      <form action="{{ route('register') }}" method="POST">
+      <form action="{{ route('register_submit') }}" method="POST">
         @csrf
         <div class="form-group" style="padding-left: 35%;">
-          <label for="first_name">first_name</label>
-          <input type="text" name="first_name" class="form-control w-50">
-        </div>
-        <div class="form-group" style="padding-left: 35%;">
-          <label for="last_name">last_name</label>
-          <input type="text" name="last_name" class="form-control w-50">
+          <label for="name">Name</label>
+          <input type="text" name="name" class="form-control w-50">
         </div>
         <div class="form-group" style="padding-left: 35%;">
           <label for="email">UserEmail</label>

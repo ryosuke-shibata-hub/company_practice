@@ -21,6 +21,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'admin@admin.com',
             'password' => hash::make('123456789'),
             'remember_token' => str_random(10),
+            'admin_role' => '10',
         ]);
     }
 }

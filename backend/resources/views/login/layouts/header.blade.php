@@ -5,7 +5,7 @@
     Adminpanel to manage companies
   </h2>
   <p>
-    <a href="{{ route('login') }}" class="logout btn btn-primary" type="button"><i class="fas fa-sign-out-alt"></i>Sign-out</a>
+    <a href="{{ route('logout') }}" class="logout btn btn-primary" type="button"><i class="fas fa-sign-out-alt"></i>Sign-out</a>
   </p>
 </header>
 @endsection

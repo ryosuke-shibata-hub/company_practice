@@ -25,6 +25,7 @@
                 <td>{{ $employee->last_name }}</td>
                 <td>{{ $employee->company_id }}</td>
                 <td>
+             @can('admin')
               <form action="{{ route('Employees.destroy',[$employee->id]) }}" method="POST">
                   @csrf
                   @method('DELETE')
@@ -40,6 +41,7 @@
                     <i class="fas fa-edit"></i>edit
                   </button>
                 </form>
+              @endcan
               </td>
               </tr>
             @endforeach

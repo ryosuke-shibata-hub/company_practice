@@ -16,7 +16,8 @@
         </div>
       @endif
       <h2 class="text-center">CompanyEdit</h2>
-      <form action="{{ route('companies.update',[$company->id]) }}" method="POST">
+      <form action="{{ route('companies.update',[$company->id]) }}" method="POST"
+             enctype="multipart/form-data">
         @csrf
         @method('PATCH')
 
@@ -30,6 +31,11 @@
           <label for="company-email">ComapanyEmail</label>
           <input type="text" name="email" class="form-control"
                   value="{{ $company->email }}">
+        </div>
+
+         <div class="form-group">
+          <label for="company_logo">Company_logo</label><br>
+          <input type="file" name="file">
         </div>
 
         <div class="form-group">

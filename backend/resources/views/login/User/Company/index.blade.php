@@ -26,9 +26,12 @@
               <td>{{ $company->id }}</td>
               <td>{{ $company->name }}</td>
               <td>{{ $company->email }}</td>
-              <td>{{ $company->logo }}</td>
+              <td>
+                <img src="/uploads/{{ $company->logo }}" width="25px">
+              </td>
               <td>{{ $company->website }}</td>
               <td>
+                @can('admin')
                 <form action="{{ route('companies.destroy',[$company->id]) }}"
                         method="POST">
                     @csrf
@@ -45,6 +48,7 @@
                     <i class="fas fa-edit"></i>edit
                   </button>
                 </form>
+                @endcan
               </td>
             </tr>
             @endforeach
